@@ -9,3 +9,6 @@ zone_id = ""
 kv_namespaces = [ 
   { binding = "SHORTENER", preview_id = "f7cc084aeb754cafb6aca687fe6d9ea8", id = "fd9d5328dc54429fbe5d8200377b42a4" }
 ]
+
+[vars]
+TOKEN = "DEFAULT_TOKEN"

@@ -23,6 +23,16 @@ async function handleRequest(request) {
     else if (request.method === 'POST') {
       try {
         const data = await request.json()
+        if (TOKEN && TOKEN !== data['token']) {
+          return new Response(JSON.stringify({
+            error: 'Missing token'
+          }), {
+            headers: {
+              'content-type': 'application/json'
+            },
+            status: 401,
+          })
+        }
         if (!data['target']) {
           return new Response(JSON.stringify({
             error: 'Missing target'
@@ -30,7 +40,7 @@ async function handleRequest(request) {
             headers: {
               'content-type': 'application/json'
             },
-            status: 401,
+            status: 400,
           })
         }
         let short = data['short']
@@ -59,13 +69,14 @@ async function handleRequest(request) {
           status: 200,
         })
       } catch (err) {
+        console.log(err)
         return new Response(JSON.stringify({
           error: 'Wrong content-type'
         }), {
           headers: {
             'content-type': 'application/json'
           },
-          status: 401,
+          status: 400,
         })
       }
     } else {
