@@ -1,15 +1,13 @@
-# 👷 `worker-template` Hello World
+# Cloudflare URL Shortener
 
-A template for kick starting a Cloudflare worker project.
+A URL shortener implemented with Cloudflare Worker, Cloudflare KV.
 
-[`index.js`](https://github.com/cloudflare/worker-template/blob/master/index.js) is the content of the Workers script.
+## To Use
+1. First, you can clone it, replace `https://c.limaois.me/` with your route
+2. Publish it with wrangler, set up route in Cloudflare Worker
+3. Set a token with `wrangler secret put TOKEN`, this will be used in generator page
+4. Visit your route and you should see a generator form and use it
 
-#### Wrangler
-
-To generate using [wrangler](https://github.com/cloudflare/wrangler)
-
-```
-wrangler generate projectname https://github.com/cloudflare/worker-template
-```
-
-Further documentation for Wrangler can be found [here](https://developers.cloudflare.com/workers/tooling/wrangler).
+## Demo 
+Form: https://c.limaois.me/
+Test (will redirect to this repo): https://c.limaois.me/Repo
